@@ -10,7 +10,7 @@ const navigator = createStackNavigator(
     Temp : TempScreen,
   },
   {
-    initialRouteName : "Home",
+    initialRouteName :"Home",
     defaultNavigationOptions : {
       title : "XYZ Bank",
       headerTitleAlign: "center" ,

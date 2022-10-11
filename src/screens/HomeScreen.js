@@ -23,6 +23,7 @@ const HomeScreen = () => {
         const DATA = [
                 {
                         "id":"1",
+
                         "title":"FIRST wealth Credit Card Credit Limit-Rs XXXX Annual Percentage Rate-XX%",
                 },
                 {
@@ -36,6 +37,7 @@ const HomeScreen = () => {
                 {
                         "id":"4",
                         "title":"Pradhan Mantri Suraksha Bima Yojana",
+
                 },
                 
                 ];
@@ -44,9 +46,11 @@ const HomeScreen = () => {
                         return(
                                 <View style={styles.item}>
                                         <Text style={styles.innertext}>{title}</Text>
+
                                         <TouchableOpacity style={styles.applyNow}
                                         
                                         onPress={handlePopUp}
+
                                         >
                                                 <Text style={styles.innerbuttontext}>Apply Now</Text>
                                         </TouchableOpacity>
@@ -65,8 +69,10 @@ const HomeScreen = () => {
                        
                         <FlatList data={DATA} renderItem={renderItem} keyExtractor={item => item.id}/>
                 
+
                 <TouchableOpacity  style={styles.Dashboard_button}>
                         <Text style={styles.Dashboard}>Dashboard</Text>
+
                         
                 </TouchableOpacity>
                 
@@ -139,6 +145,7 @@ const HomeScreen = () => {
 }
 
 const styles = StyleSheet.create({
+
         applyNow:{
                 marginTop : 30,
                 backgroundColor : "rgb(128,0,0)",
@@ -165,6 +172,7 @@ const styles = StyleSheet.create({
                 fontSize: 20,
                 fontWeight: 'bold'
         },
+
         button : {
                 alignItems:"center",
                 justifyContent:"center",
@@ -257,8 +265,10 @@ const styles = StyleSheet.create({
                 marginVertical: 5,
                 marginHorizontal: 16,
                 height: 220,
+
                 width: 600,
                 borderRadius: 25,
+
         },
         button: {
                 padding: 20,
@@ -274,7 +284,9 @@ const styles = StyleSheet.create({
         },
         innertext: { 
                 marginBottom: 20,
+
                 fontSize: 20,
+
         
         },
         butto: {
@@ -291,9 +303,11 @@ const styles = StyleSheet.create({
         
         },
         innerbuttontext: { 
+
                 fontSize: 17,
                 fontWeight: 'bold',
                 color: '#fff'
+
         
         },
 
