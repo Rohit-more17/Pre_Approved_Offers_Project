@@ -44,11 +44,12 @@ const HomeScreen = () => {
                         return(
                                 <View style={styles.item}>
                                         <Text style={styles.innertext}>{title}</Text>
-                                        <TouchableOpacity style={styles.butto}
-                                        onPress = {handlePopUp}
-                                        >
-                                                <Text style={styles.innerbuttontext}>Apply Now</Text>
-                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                onPress = {handlePopUp}
+                                style ={styles.confirm}
+                                >
+                                        <Text style ={{fontWeight:"bold",  color :"white" , fontSize :20}}>Apply Now</Text>
+                                </TouchableOpacity>
                         
                                 </View>
                         
@@ -68,11 +69,13 @@ const HomeScreen = () => {
                         
                 </TouchableOpacity>
                 
+
                 <Modal
                 transparent={true}
                 animationType="slide"
                 visible={modalToggle}
                 >
+                        
                         <View style={styles.modalView}>
                                 <Text style={styles.topText}>This customer already has a banking relationship with us</Text>
                                 
@@ -226,11 +229,12 @@ const styles = StyleSheet.create({
         item: {
                 backgroundColor: '#ffcccc',
                 padding: 42,
-                marginVertical: 5,
+                marginVertical: 10,
                 marginHorizontal: 16,
                 height: 220,
-                width: 300,
+                width: 430,
                 borderRadius: 25,
+                paddingBottom : 10,
                 // alignItems: "right"
         },
         button: {
@@ -260,7 +264,7 @@ const styles = StyleSheet.create({
                 alignItems :"center",
                 backgroundColor:"#ff4d4d",
                 borderRadius:20,
-        
+                fontFamily :"arial"
         },
         innerbuttontext: { 
                 fontSize: 12,
@@ -271,3 +275,8 @@ const styles = StyleSheet.create({
 })
 
 export default HomeScreen ;
+
+
+// background blur
+// top image
+// drop down
