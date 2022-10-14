@@ -4,13 +4,14 @@ import{ StyleSheet,
         View,
         FlatList,
         TouchableOpacity,
-        Image,
-        Modal
+        Modal, 
+
 } from 'react-native'; 
+import { MaterialIcons } from '@expo/vector-icons'; 
 import DropDownComponent from '../components/DropDownComponent'
 const HomeScreen = () => {
 
-        const [modalToggle ,setModalToggle] = useState(false)
+        const [modalToggle ,setModalToggle] = useState(true)
 
         const handlePopUp =()=>{
                 setModalToggle(true)
@@ -18,6 +19,12 @@ const HomeScreen = () => {
 
         const handleClosePopUp=()=>{
                 setModalToggle(false)
+        }
+
+        const handleConfirm =()=>{
+                
+                alert("Successful")
+
         }
 
         const DATA = [
@@ -75,12 +82,14 @@ const HomeScreen = () => {
 
 
                                         <TouchableOpacity style={{ ...styles.applyNow, backgroundColor: buttoncolor}}
+
                                         
                                         onPress={handlePopUp}
 
                                         >
                                                 <Text style={{ ...styles.innerbuttontext, color:innerbuttontext}}>Apply Now</Text>
                                         </TouchableOpacity>
+
                         
                                 </View>
                         
@@ -98,17 +107,18 @@ const HomeScreen = () => {
                 
 
                 <TouchableOpacity  style={styles.Dashboard_button}>
-                        <Text style={styles.Dashboard}>Dashboard</Text>
-
-                        
+                        <Text style={styles.Dashboard}>Dashboard</Text>      
                 </TouchableOpacity>
-                
                 <Modal
                 transparent={true}
                 animationType="slide"
                 visible={modalToggle}
                 >
+                        
                         <View style={styles.modalView}>
+                                <View style = {styles.topImage}>
+                                        <MaterialIcons name="info-outline" size={70} color="white" />
+                                </View>
                                 <Text style={styles.topText}>This customer already has a banking relationship with us</Text>
                                 
                                 <Text style={styles.textId}>The following accounts exist under the Customer ID *****8471</Text>
@@ -150,7 +160,7 @@ const HomeScreen = () => {
                                 </View>
  
                                 <TouchableOpacity
-                                onPress = {()=>alert("Successful")}
+                                onPress = {handleConfirm}
                                 style ={styles.confirm}
                                 >
                                         <Text style ={{fontWeight:"bold",  color :"white" , fontSize :20}}>Confirm</Text>
@@ -172,7 +182,16 @@ const HomeScreen = () => {
 }
 
 const styles = StyleSheet.create({
-
+        topImage :{
+                height : 100 , 
+                width : 100 , 
+                backgroundColor : "rgb(235, 149, 50)", 
+                borderRadius : 200, 
+                position : "absolute" , 
+                top : -50, 
+                alignItems :"center",
+                justifyContent :"center"
+        },
         applyNow:{
                 marginTop : 20,
                 height : 50 ,
@@ -213,7 +232,7 @@ const styles = StyleSheet.create({
         modalView: {
                 alignSelf:"center",
                 top:170,
-                height:800,
+                height:840,
                 width:670,
                 backgroundColor: "#ececec",
                 borderRadius: 20,
@@ -230,14 +249,16 @@ const styles = StyleSheet.create({
                 elevation: 5,
         },
         topText :{
+                marginHorizontal : 35,
+                marginTop : 45,
                 top : 10,
                 fontWeight: "bold",
                 fontSize:35, 
         },
         textId :{
-                marginTop:20,
-                fontSize:22,
-                marginLeft:15,
+                marginTop:22,
+                fontSize:21,
+                marginRight : 9,
         },
         accountsContainer :{
                 marginTop:20,
@@ -289,10 +310,12 @@ const styles = StyleSheet.create({
         item: {
                 backgroundColor: '#ffcccc',
                 padding: 42,
+
                 marginVertical: 12,
                 marginHorizontal: 16,
                 height: 220,
                 width: 700,
+
                 borderRadius: 25,
 
         },
@@ -327,7 +350,7 @@ const styles = StyleSheet.create({
                 alignItems :"center",
                 backgroundColor:"#ff4d4d",
                 borderRadius:20,
-        
+                fontFamily :"arial"
         },
         innerbuttontext: { 
 
