@@ -5,7 +5,6 @@ import{ StyleSheet,
         FlatList,
         TouchableOpacity,
         Modal, 
-        
 
 } from 'react-native'; 
 import { MaterialIcons } from '@expo/vector-icons'; 
@@ -31,37 +30,64 @@ const HomeScreen = () => {
         const DATA = [
                 {
                         "id":"1",
-
                         "title":"FIRST wealth Credit Card Credit Limit-Rs XXXX Annual Percentage Rate-XX%",
+                        color:"#666699",
+                        textcolor:"#fff",
+                        buttoncolor: "#fff",
+                        innerbuttontext: "rgb(128,0,0)",
+                        "image":"D:\Flatlist Project\Pre_Approved_Offers_Project\assets\Credit-Card.png"
                 },
                 {
                         "id":"2",
                         "title":"Cover Your Hospitalisation expenses at just Rs 2200/year",
+                        color:"#ff6666",
+                        textcolor:"#fff",
+                        buttoncolor: "#fff",
+                        innerbuttontext: "rgb(128,0,0)",
+                        "image":"D:\Flatlist Project\Pre_Approved_Offers_Project\assets\handshake-heart.png"
+                        
                 },
                 {
                         "id":"3",
                         "title":"Pradhan Mantri Jeevan Jyoti Bima Yojana",
+                        color:"#ffe5cc",
+                        textcolor:"#000000",
+                        buttoncolor: "rgb(128,0,0)",
+                        innerbuttontext: "#fff",
+                        "image":"D:\Flatlist Project\Pre_Approved_Offers_Project\assets\PMJJBY.png"
+                        
                 },
                 {
                         "id":"4",
                         "title":"Pradhan Mantri Suraksha Bima Yojana",
+                        color:"#cce6ff",
+                        textcolor:"#000000",
+                        buttoncolor: "rgb(128,0,0)",
+                        innerbuttontext:"#fff",
+                        "image":"D:\Flatlist Project\Pre_Approved_Offers_Project\assets\PMJDY.png"
+                        
 
                 },
                 
                 ];
 
-                const Item = ({title}) => {
+                const Item = ({title, color, id, textcolor, image, buttoncolor, innerbuttontext}) => {
                         return(
-                                <View style={styles.item}>
-                                        <Text style={styles.innertext}>{title}</Text>
+                                
+                                <View style={{ ...styles.item, backgroundColor: color}}>
+
+                                        <Text style={{ ...styles.innertext, color: textcolor}}>{title}</Text>
 
 
-                                        <TouchableOpacity style={styles.applyNow}
+
+
+                                        <TouchableOpacity style={{ ...styles.applyNow, backgroundColor: buttoncolor}}
+
                                         
                                         onPress={handlePopUp}
 
                                         >
-                                                <Text style={styles.innerbuttontext}>Apply Now</Text>
+                                                <Text style={{ ...styles.innerbuttontext, color:innerbuttontext}}>Apply Now</Text>
                                         </TouchableOpacity>
 
                         
@@ -73,11 +99,11 @@ const HomeScreen = () => {
                         }
 
                 const renderItem = ({item})=>(
-                                <Item title={item.title}/>
+                                <Item title={item.title} color={item.color} id={item.id} textcolor={item.textcolor} image={item.image} buttoncolor={item.buttoncolor} innerbuttontext={item.innerbuttontext}/>
                         )
         return  <View style={styles.container}>
-                       
-                        <FlatList data={DATA} renderItem={renderItem} keyExtractor={item => item.id}/>
+                
+                <FlatList data={DATA} renderItem={renderItem} keyExtractor={item => item.id}/>
                 
 
                 <TouchableOpacity  style={styles.Dashboard_button}>
@@ -167,15 +193,16 @@ const styles = StyleSheet.create({
                 justifyContent :"center"
         },
         applyNow:{
-                marginTop : 30,
-                backgroundColor : "rgb(128,0,0)",
+                marginTop : 20,
                 height : 50 ,
-                width : 200,
+                width : 110,
                 borderRadius : 50,
                 alignItems :"center",
-                justifyContent :"center"
+                justifyContent :"center",
+                marginLeft: 140
 
         },
+
         Dashboard_button:{
                 marginTop : 10,
                 backgroundColor : "rgb(128,0,0)",
@@ -214,13 +241,13 @@ const styles = StyleSheet.create({
                 alignItems: "center",
                 shadowColor: "#000",
                 shadowOffset: {
-                  width: 0,
-                  height: 2
+                width: 0,
+                height: 2
                 },
                 shadowOpacity: 5,
                 shadowRadius: 4,
                 elevation: 5,
-              },
+        },
         topText :{
                 marginHorizontal : 35,
                 marginTop : 45,
@@ -278,18 +305,17 @@ const styles = StyleSheet.create({
                 padding:2,
                 alignItems: "center",
                 backgroundColor: "#fff",
-                borderWidth:5,
                 flex:1,
         },
         item: {
                 backgroundColor: '#ffcccc',
                 padding: 42,
-                marginVertical: 10,
+
+                marginVertical: 12,
                 marginHorizontal: 16,
                 height: 220,
+                width: 700,
 
-
-                width: 600,
                 borderRadius: 25,
 
         },
@@ -307,8 +333,9 @@ const styles = StyleSheet.create({
         },
         innertext: { 
                 marginBottom: 20,
-
-                fontSize: 20,
+                fontWeight: 'bold',
+                fontSize: 24,
+                marginLeft:140
 
         
         },
@@ -329,7 +356,6 @@ const styles = StyleSheet.create({
 
                 fontSize: 17,
                 fontWeight: 'bold',
-                color: '#fff'
 
         
         },
